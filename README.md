@@ -150,7 +150,7 @@ speedometer -t s1-eth3
 
 For instance, this is what you should see:
 
-![alt text](https://github.com/nsg-ethz/Blink/blob/public/speedometer_screenshot.png?raw=true)
+![alt text](https://github.com/nsg-ethz/Blink/blob/master/speedometer_screenshot.png?raw=true)
 
 
 Once your are done, you can set the interface `s1-eth2` up:
