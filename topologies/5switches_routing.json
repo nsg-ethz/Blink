@@ -1,0 +1,86 @@
+{
+    "switches": {
+        "s1": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["h1"],
+                    "customer_provider_peer": ["h1"]
+                    },
+                "h2" : {
+                    "customer": ["s2", "s3", "s4"],
+                    "customer_provider_peer": ["s2", "s3", "s4"]
+                    }
+            },
+            "bgp":{
+                "s2":"customer",
+                "s3":"customer",
+                "s4":"customer"
+            }
+        },
+        "s2": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s1"],
+                    "customer_provider_peer": ["s1"]
+                },
+                "h2" : {
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
+                }
+            },
+            "bgp":{
+                "s1":"provider",
+                "s5":"customer"
+            }
+        },
+        "s3": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s1"],
+                    "customer_provider_peer": ["s1"]
+                },
+                "h2" : {
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
+                }
+            },
+            "bgp":{
+                "s1":"provider",
+                "s5":"customer"
+            }
+        },
+        "s4": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s1"],
+                    "customer_provider_peer": ["s1"]
+                },
+                "h2" : {
+                    "customer": ["s5"],
+                    "customer_provider_peer": ["s5"]
+                }
+            },
+            "bgp":{
+                "s1":"provider",
+                "s5":"customer"
+            }
+        },
+        "s5": {
+            "prefixes": {
+                "h1" : {
+                    "customer": ["s4"],
+                    "customer_provider_peer": ["s4"]
+                },
+                "h2" : {
+                    "customer": ["h2"],
+                    "customer_provider_peer": ["h2"]
+                }
+            },
+            "bgp":{
+                "s2":"customer",
+                "s3":"customer",
+                "s4":"customer"
+            }
+        }
+    }
+}
