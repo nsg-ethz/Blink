@@ -21,7 +21,7 @@ Note that bmv2 should be installed without the log, to make the p4 switches fast
 
 # Building a virtual topology with mininet
 
-Once you have installed the VM, you should find a directory `Blink` in `/home/p4/` THOMAS: TODO!!!!!!!. Now, the next step is to build a virtual topology using [mininet](http://mininet.org). To do that, we first need to define the topology in a `json` file. We provide you with the file [5switches.json](https://github.com/nsg-ethz/Blink/blob/master/topologies/5switches.json), which defines the topology below, and that we will use as an example.
+Once you have installed the VM, you should find a directory `Blink` in `/home/p4/`. Now, the next step is to build a virtual topology using [mininet](http://mininet.org). To do that, we first need to define the topology in a `json` file. We provide you with the file [5switches.json](https://github.com/nsg-ethz/Blink/blob/master/topologies/5switches.json), which defines the topology below, and that we will use as an example.
 To build your own topology, you can find some documentation [here](https://github.com/nsg-ethz/p4-utils#documentation).
 
 ```
