@@ -23,12 +23,12 @@ topo = Topology(db=topo_db)
 
 pid_list = []
 for s in topo.get_p4switches():
-    print "sudo python -m controller.p4_controller --topo_db topologies/topology.db \
+    print "sudo python -m controller.p4_controller --topo_db "+str(topo_db)+" \
     --sw_name "+str(s)+" --controller_ip "+str(ip_controller)+" --controller_port \
     "+str(port_controller)+" --log_dir "+str(log_dir)+" "+routing_file_param
 
     pid_list.append(Popen("sudo python -m controller.p4_controller --topo_db \
-    topologies/topology.db --sw_name "+str(s)+" --controller_ip "+str(ip_controller)+" \
+    "+str(topo_db)+" --sw_name "+str(s)+" --controller_ip "+str(ip_controller)+" \
     --controller_port "+str(port_controller)+" --log_dir "+str(log_dir)+" "+ \
     routing_file_param, shell=True)) # call subprocess
 
