@@ -79,7 +79,7 @@ Observe that here we differentiate peers, providers and customers. This is an im
 To run the controller, first create the directory `log` where the log files will be stored, and then run the following python script:
 
 ```
-sudo python -m controller.blink_controller --port 10000 --log_dir log --log_level 20 --routing_file topologies/5switches_routing.json --threshold 31 --topo_db topologies/topology.db
+sudo python -m controller.blink_controller --port 10000 --log_dir log --log_level 20 --routing_file topologies/5switches_routing.json --threshold 31 --topo_db topology.db
 ```
 
 :exclamation: Observe that here we use a threshold of 15 (instead of 31, i.e., half of the selected flows), because we will only generate 40 flows to test Blink, otherwise the VM will be overloaded which will cause too many retransmissions unrelated to any failure. 
@@ -88,7 +88,7 @@ Now, you need to make the connection between the controller and the p4 switches.
 To do that, run the following Python script:
 
 ```
-python -m controller.run_p4_controllers --topo_db topologies/topology.db --controller_ip localhost --controller_port 10000 --routing_file topologies/5switches_routing.json
+python -m controller.run_p4_controllers --topo_db topology.db --controller_ip localhost --controller_port 10000 --routing_file topologies/5switches_routing.json
 ```
 Make sure that the port is the same than the one you use with the `blink_controller` script.
 
