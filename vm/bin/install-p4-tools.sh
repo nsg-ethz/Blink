@@ -95,7 +95,7 @@ mkdir -p ${BUILD_DIR}
 # If false, build tools without debug features to improve throughput of BMv2 and
 # reduce CPU/memory footprint.
 DEBUG_FLAGS=false
-ENABLE_P4_RUNTIME=true
+ENABLE_P4_RUNTIME=false
 
 #Install Protobuf
 function do_protobuf {

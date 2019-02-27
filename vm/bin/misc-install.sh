@@ -45,7 +45,7 @@ sudo pip install numpy
 sudo pip install pyyaml
 sudo pip install py-radix
 sudo pip install sortedcontainers
-sudo git clone https://github.com/nsg-ethz/Blink.git /home/Blink/
+sudo git clone https://github.com/nsg-ethz/Blink.git /home/p4/Blink/
 
 # Install speedometer
-sudo apt-get install speedometer
+sudo apt-get -y install speedometer
