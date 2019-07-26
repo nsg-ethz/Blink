@@ -1,6 +1,6 @@
 # Blink: Fast Connectivity Recovery Entirely in the Data-Plane
 
-This is the repositery of [Blink](https://www.usenix.org/conference/nsdi19/presentation/holterbach), which was presented at NSDI'19.
+This is the repository of [Blink](https://www.usenix.org/conference/nsdi19/presentation/holterbach), which was presented at NSDI'19.
 
 `p4_code` contains the p4_16 implementation of Blink.<br/>
 `python_code` contains the Python-based implementation of Blink.<br/>
