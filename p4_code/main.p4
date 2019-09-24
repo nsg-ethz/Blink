@@ -92,9 +92,31 @@ control ingress(inout Parsed_packet pp,
         }
         key = {
             pp.ipv4.dstAddr: lpm;
+            custom_metadata.bgp_ngh_type: exact;
         }
         size = 20000;
         default_action = _drop;
+    }
+
+
+    /**
+    * Set the metadata about BGP (provider, peer or customer)
+    */
+    action set_bgp_tag(bit<2> neighbor_bgp_type) {
+        custom_metadata.bgp_ngh_type = neighbor_bgp_type;
+    }
+
+    table bgp_tag {
+        actions = {
+            set_bgp_tag;
+            NoAction;
+        }
+        key = {
+            standard_metadata.ingress_port: exact;
+            pp.ethernet.srcAddr: exact;
+        }
+        size = 20000;
+        default_action = NoAction; // By default bgp_ngh_type will be 0, meaning customer (used for the host)
     }
 
     /**
@@ -140,6 +162,7 @@ control ingress(inout Parsed_packet pp,
         custom_metadata.ingress_timestamp_millisecond =
             (bit<19>)((standard_metadata.ingress_global_timestamp - ts_tmp) >> 10);
 
+        bgp_tag.apply();
         meta_fwtable.apply();
 
         //Traceroute Logic (only for TCP probes)
