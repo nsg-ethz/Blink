@@ -140,7 +140,7 @@ sudo ifconfig s1-eth2 down
 ```
 
 You will see that traffic is quickly rerouted by Blink to s3, which will restore connectivity.
-To visualize it, you can use `speedometer` (you need to install it with `apt-get install speedometer`. For instance you can run the following three speedometer commands to see the rerouting in real time:
+To visualize it, you can use `speedometer` (you need to install it with `apt-get install speedometer`). For instance you can run the following three speedometer commands to see the rerouting in real time:
 
 ```
 speedometer -t s1-eth1
