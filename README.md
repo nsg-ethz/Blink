@@ -21,7 +21,7 @@ Note that bmv2 should be installed without the log, to make the p4 switches fast
 
 # Building a virtual topology with mininet
 
-Once you have installed the VM, you should find a directory `Blink` in `/home/p4/`. Now, the next step is to build a virtual topology using [mininet](http://mininet.org). To do that, we first need to define the topology in a `json` file. We provide you with the file [5switches.json](https://github.com/nsg-ethz/Blink/blob/master/topologies/5switches.json), which defines the topology below, and that we will use as an example.
+Once you have installed the VM, you should find a directory `Blink` in `/home/p4/` (otherwise clone this repositery). Now, the next step is to build a virtual topology using [mininet](http://mininet.org). To do that, we first need to define the topology in a `json` file. We provide you with the file [5switches.json](https://github.com/nsg-ethz/Blink/blob/master/topologies/5switches.json), which defines the topology below, and that we will use as an example.
 To build your own topology, you can find some documentation [here](https://github.com/nsg-ethz/p4-utils#documentation).
 
 ```
@@ -72,7 +72,7 @@ typing `xterm h1` in the CLI, or by using the `mx` command that comes already in
 
 The next step is to run the controller for each p4 switch in the network. The controller will populate the registers so that Blink is ready to fast reroute. For example, the controller will populate the next-hops list, used to indicate which next-hops to use for every destination prefix. You must indicate in a json file the next-hops to use for each switch and for each prefix. We provide you with an example in the file [5switches_routing.json](https://github.com/nsg-ethz/Blink/blob/master/topologies/5switches_routing.json).
 
-Observe that here we differentiate peers, providers and customers. This is an improvement we made and which is not included the in the Blink paper. The effect is that the traffic that can go to customers only and the traffic than can go to customers/peers/providers go through the Blink pipeline independently of each other, like if they were going to two different destination prefixes. If you want to define your own topology and your own policies, you will have to define the per-prefix and per-type-of-traffic next-hops in this file.
+Observe that here we differentiate peers, providers and customers. This is a slight difference we made compare to the Blink version we describe in the paper. The effect is that the traffic that can go to customers only and the traffic than can go to customers/peers/providers go through the Blink pipeline independently of each other, like if they were going to two different destination prefixes. Considering these two types of traffic independently avoids creating potential transient loops when fast rerouting. If you want to define your own topology and your own policies, you will have to define the per-prefix and per-type-of-traffic next-hops in this file.
 
 ## Running the controller
 
