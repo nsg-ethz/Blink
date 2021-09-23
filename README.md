@@ -170,7 +170,7 @@ cd murmur
 python setup.py build_ext --inplace
 ```
 
-After, make the log dir with `mkdir log`.
+After,go back to the Blink folder and make the log dir with `mkdir log`.
 Then you can start the controller version of the python implementation with:
 
 ```
