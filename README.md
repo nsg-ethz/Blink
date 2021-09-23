@@ -122,7 +122,7 @@ First, go to `h2` with `mx h2` and then in the Blink directory run the receivers
 Make sure to create the directory `log_traffic` before. The log files will be stored in this directory.
 
 ```
-python -m traffic_generation.run_servers --ports 11000,11040 --log_dir log_traffic```
+python -m traffic_generation.run_servers --ports 11000,11040 --log_dir log_traffic
 ```
 
 Then, go the `h1` and run 40 flows with an inter packet delay (ipd) of 1s and a duration of 100s:
